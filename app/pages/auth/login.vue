@@ -87,6 +87,10 @@
               required />
           </div>
 
+          <div v-if="errorMessage" class="text-red-500 text-center mb-4">
+            {{ errorMessage }}
+          </div>
+
           <div class="mb-6 md:mb-10 w-full flex justify-center">
             <button
               type="submit"
@@ -140,13 +144,17 @@ const formData = ref({
   password: "",
 });
 
+const errorMessage = ref<string | null>(null);
+
 const { login } = useAuth();
 
 const handleSubmit = async () => {
+  errorMessage.value = null; 
   try {
-    login(formData.value);
-  } catch (error) {
-    console.log(error);
+    await login(formData.value);
+  } catch (error: any) {
+    errorMessage.value = error.message || "Terjadi kesalahan saat login.";
+    console.error(error);
   }
 };
 </script>

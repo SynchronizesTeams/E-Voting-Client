@@ -66,7 +66,8 @@ export const useAuth = () => {
     } catch (error: any) {
       console.error("Login failed:", error.data || error.message);
       logout();
-      throw error;
+      const errorMessage = error.data?.message || "NIS atau password salah. Silahkan coba lagi";
+      throw new Error(errorMessage);
     }
   };
 
