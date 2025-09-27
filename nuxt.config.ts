@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiUrl: 'http://127.0.0.1:8001/api'
+      apiUrl: 'https://evoting.synchronizeteams.my.id/api'
     }
   },
 
