@@ -125,7 +125,7 @@
         </div>
       </div>
 
-      <!-- Logging -->
+      <!-- Logging
       <div
         class="bg-gradient-to-r from-brown-primary to-brown-secondary rounded-lg p-6 mt-8"
       >
@@ -161,7 +161,7 @@
             Tidak ada log voting tersedia.
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

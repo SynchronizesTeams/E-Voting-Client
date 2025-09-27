@@ -1,6 +1,11 @@
 <template>
   <div
     class="min-h-screen relative overflow-hidden bg-[url('/images/Background/mobile/landing.png')] sm:bg-[url('~/assets/images/Background/KPOP.png')] bg-cover bg-no-repeat bg-fixed">
+    <button
+      @click="handleLogout"
+      class=" absolute right-4 top-4 font-semibold py-2 px-4 rounded-sm bg-gradient-to-r from-brown-secondary to-brown-primary text-[#19303E] hover:bg-red-600 transition-colors hover:cursor-pointer">
+      Logout
+    </button>
     <main
       class="container mx-auto px-4 relative z-10 max-w-4xl text-center text-white">
       <section
@@ -95,4 +100,10 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { logout } = useAuth();
+
+const handleLogout = async () => {
+  await logout();
+};
+</script>
