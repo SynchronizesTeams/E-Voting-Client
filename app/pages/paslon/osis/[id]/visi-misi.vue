@@ -100,7 +100,7 @@ const router = useRouter();
 const paslonId = parseInt(route.params.id);
 
 // Ambil semua yang dibutuhkan dari composable
-const { selectedOsis, selectCandidate, submitVote } = useVote();
+const { selectedOsis, selectedMpk, selectCandidate, submitVote } = useVote();
 
 const candidate = computed(() => {
   return paslonData.candidates.find((c) => c.id === paslonId) || {};
@@ -122,7 +122,7 @@ const handleVote = async () => {
   selectCandidate("osis", candidate.value.id);
 
   // 2. Cek apakah kandidat OSIS sudah dipilih sebelumnya
-  if (selectedOsis.value !== null) {
+  if (selectedOsis.value !== null && selectedMpk.value !== null) {
     // Jika SUDAH, kirim vote untuk keduanya
     try {
       alert("Pilihan OSIS telah disimpan. Mengirim vote untuk OSIS & MPK...");
