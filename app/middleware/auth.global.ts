@@ -1,8 +1,9 @@
 export default defineNuxtRouteMiddleware((to) => {
   if (import.meta.client) {
     const token = localStorage.getItem("token");
-
-    if (!token && to.path !== "/login") {
+    
+    // Izinkan akses ke halaman utama (thanks.vue) tanpa token
+    if (!token && to.path !== "/login" && to.path !== "/") {
       return navigateTo("/login");
     }
 
